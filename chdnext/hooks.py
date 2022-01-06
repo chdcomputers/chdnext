@@ -188,3 +188,4 @@ app_license = "MIT"
 # 	"chdnext.auth.validate"
 # ]
 
+fixtures = ["Custom Field"]

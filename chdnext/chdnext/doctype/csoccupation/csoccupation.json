@@ -1,0 +1,55 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:occupation_name",
+ "creation": "2022-01-06 21:57:10.461206",
+ "description": "\u0395\u03c0\u03b1\u03b3\u03b3\u03ad\u03bb\u03bc\u03b1\u03c4\u03b1 \u03a0\u03b5\u03bb\u03b1\u03c4\u03ce\u03bd \u03ba\u03b1\u03b9 \u03a0\u03c1\u03bf\u03bc\u03b7\u03b8\u03b5\u03c5\u03c4\u03ce\u03bd \u03c0\u03bf\u03c5 \u03c7\u03c1\u03b7\u03c3\u03b9\u03bc\u03bf\u03c0\u03bf\u03b9\u03bf\u03cd\u03bd\u03c4\u03b1\u03b9 \u03ba\u03c5\u03c1\u03af\u03c9\u03c2 \u03b3\u03b9\u03b1 \u03c4\u03b7\u03bd \u03b5\u03ba\u03c4\u03cd\u03c0\u03c9\u03c3\u03b7 \u03c4\u03c9\u03bd \u03c0\u03b1\u03c1\u03b1\u03c3\u03c4\u03b1\u03c4\u03b9\u03ba\u03ce\u03bd",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "occupation_name",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "occupation_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Occupation Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-01-06 21:57:10.461206",
+ "modified_by": "Administrator",
+ "module": "ChDNext",
+ "name": "CSOccupation",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

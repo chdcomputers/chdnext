@@ -1,0 +1,69 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{tax_office_code}-{tax_office_name}",
+ "creation": "2022-01-06 22:49:10.541563",
+ "description": "\u039f\u03b9 \u0394.\u039f.\u03a5. \u03c3\u03c4\u03b9\u03c2 \u03bf\u03c0\u03bf\u03af\u03b5\u03c2 \u03b1\u03bd\u03ae\u03ba\u03bf\u03c5\u03bd \u03bf\u03b9 \u03c0\u03b5\u03bb\u03ac\u03c4\u03b5\u03c2 \u03ba\u03b1\u03b9 \u03bf\u03b9 \u03c0\u03c1\u03bf\u03bc\u03b7\u03b8\u03b5\u03c5\u03c4\u03ad\u03c2. \u03a7\u03c1\u03b7\u03c3\u03b9\u03bc\u03bf\u03c0\u03bf\u03b9\u03bf\u03cd\u03bd\u03c4\u03b1\u03b9 \u03ba\u03c5\u03c1\u03af\u03c9\u03c2 \u03b3\u03b9\u03b1 \u03c4\u03b7\u03bd \u03b5\u03ba\u03c4\u03cd\u03c0\u03c9\u03c3\u03b7 \u03c4\u03c9\u03bd \u03c0\u03b1\u03c1\u03b1\u03c3\u03c4\u03b1\u03c4\u03b9\u03ba\u03ce\u03bd.",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "tax_office_code",
+  "tax_office_name",
+  "tax_office_address",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "tax_office_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tax Office Code",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "tax_office_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tax Office Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tax_office_address",
+   "fieldtype": "Link",
+   "label": "Tax Office Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-01-06 22:49:10.541563",
+ "modified_by": "Administrator",
+ "module": "ChDNext",
+ "name": "CSTaxOffice",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
