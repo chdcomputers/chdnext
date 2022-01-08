@@ -1,0 +1,16 @@
+Tested and working with complaints...
+
+sudo supervisorctl stop all
+bench build
+bench --site all clear-cache
+bench clear-cache
+sudo supervisorctl start all
+
+
+Not tested but it might work
+
+bench build
+bench --site all clear-cache
+bench clear-cache
+sudo supervisorctl stop all
+sudo supervisorctl start all
