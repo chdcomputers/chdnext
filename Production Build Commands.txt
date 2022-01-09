@@ -6,6 +6,7 @@ bench --site all clear-cache
 bench clear-cache
 sudo supervisorctl start all
 
+In one line: sudo supervisorctl stop all && bench build && bench --site all clear-cache && bench clear-cache && sudo supervisorctl start all
 
 Not tested but it might work
 

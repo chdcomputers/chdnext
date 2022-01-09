@@ -15,6 +15,7 @@ app_license = "MIT"
 # include js, css files in header of desk.html
 # app_include_css = "/assets/chdnext/css/chdnext.css"
 # app_include_js = "/assets/chdnext/js/chdnext.js"
+app_include_css = ["style.bundle.css"]
 app_include_js = ["main.bundle.js","chdmain.bundle.js"]
 # include js, css files in header of web template
 # web_include_css = "/assets/chdnext/css/chdnext.css"
