@@ -1,4 +1,13 @@
+import os
+import io
+import frappe
 from . import __version__ as app_version
+from csv import reader
+# from frappe.utils import strip
+from frappe.utils import logger
+# from frappe.query_builder import Field, DocType
+# from pypika.terms import PseudoColumn
+
 
 app_name = "chdnext"
 app_title = "ChDNext"
@@ -8,6 +17,45 @@ app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "chdcomputers@gmail.com"
 app_license = "MIT"
+
+# Christos Python Overrides
+frappe.utils.logger.set_log_level("DEBUG")
+chdlogger = frappe.logger("chdhooks", allow_site=True, file_count=50)
+
+def chd_load_lang_forced(lang, apps=None):
+	result = {}
+	for app in (apps or frappe.get_all_apps(True)):
+		path = os.path.join(frappe.get_pymodule_path(app), "translations", lang + "_forced.csv")
+		result.update(frappe.translate.get_translation_dict_from_file(path, lang, app) or {})
+	return result
+
+def chd_make_dict_from_messages(messages, full_dict=None, load_user_translation=True):
+	"""Returns translated messages as a dict in Language specified in `frappe.local.lang`
+
+	:param messages: List of untranslated messages
+	"""
+	out = {}
+	if full_dict==None:
+		if load_user_translation:
+			full_dict = frappe.translate.get_full_dict(frappe.local.lang)
+		else:
+			full_dict = frappe.translate.load_lang(frappe.local.lang)
+
+	for m in messages:
+		if m[1] in full_dict:
+			out[m[1]] = full_dict[m[1]]
+		# check if msg with context as key exist eg. msg:context
+		if len(m) > 2 and m[2]:
+			key = m[1] + ':' + m[2]
+			if full_dict.get(key):
+				out[key] = full_dict[key]
+
+	# Christos - Add every [lang]_forced.csv translation file in out
+	out.update(chd_load_lang_forced(frappe.local.lang) or {})
+
+	return out
+
+frappe.translate.make_dict_from_messages = chd_make_dict_from_messages
 
 # Includes in <head>
 # ------------------

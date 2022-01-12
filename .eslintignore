@@ -1,0 +1,8 @@
+chdnext/public/js/lib/*
+chdnext/public/js/chdnext/misc/tests/*
+chdnext/public/js/chdnext/views/test_runner.js
+chdnext/core/doctype/doctype/boilerplate/*
+chdnext/core/doctype/report/boilerplate/*
+chdnext/public/js/chdnext/class.js
+chdnext/templates/includes/*
+chdnext/www/website_script.js
