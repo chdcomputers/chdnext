@@ -1,7 +1,7 @@
 # **** ΠΡΟΣΟΧΗ ****
 # Σε αυτό το αρχείο τα imports πρέπει να γράφονται και να χρησιμοποιούνται όπως παρακάτω γιατί
 # αλλιώς ΔΕΝ δουλεύει το bench update
-# Import modulename as _modulename
+# Import modulename as _modulename <-- Η κάτω παύλα ΔΕΝ βάζει το module στην cache και έτσι δουλεύει το bench update
 # Περισσότερα εδώ: https://discuss.erpnext.com/t/update-fails-typeerror-cant-pickle-module-objects/57144
 import os as _os
 import frappe as _frappe
