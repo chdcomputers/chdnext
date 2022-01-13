@@ -1,12 +1,11 @@
-import os
-import io
-import frappe
-from . import __version__ as app_version
-from csv import reader
-# from frappe.utils import strip
-from frappe.utils import logger
-# from frappe.query_builder import Field, DocType
-# from pypika.terms import PseudoColumn
+# **** ΠΡΟΣΟΧΗ ****
+# Σε αυτό το αρχείο τα imports πρέπει να γράφονται και να χρησιμοποιούνται όπως παρακάτω γιατί
+# αλλιώς ΔΕΝ δουλεύει το bench update
+# Import modulename as _modulename
+# Περισσότερα εδώ: https://discuss.erpnext.com/t/update-fails-typeerror-cant-pickle-module-objects/57144
+import os as _os
+import frappe as _frappe
+from . import __version__ as _app_version
 
 
 app_name = "chdnext"
@@ -19,14 +18,11 @@ app_email = "chdcomputers@gmail.com"
 app_license = "MIT"
 
 # Christos Python Overrides
-frappe.utils.logger.set_log_level("DEBUG")
-chdlogger = frappe.logger("chdhooks", allow_site=True, file_count=50)
-
 def chd_load_lang_forced(lang, apps=None):
 	result = {}
-	for app in (apps or frappe.get_all_apps(True)):
-		path = os.path.join(frappe.get_pymodule_path(app), "translations", lang + "_forced.csv")
-		result.update(frappe.translate.get_translation_dict_from_file(path, lang, app) or {})
+	for app in (apps or _frappe.get_all_apps(True)):
+		path = _os.path.join(_frappe.get_pymodule_path(app), "translations", lang + "_forced.csv")
+		result.update(_frappe.translate.get_translation_dict_from_file(path, lang, app) or {})
 	return result
 
 def chd_make_dict_from_messages(messages, full_dict=None, load_user_translation=True):
@@ -37,9 +33,9 @@ def chd_make_dict_from_messages(messages, full_dict=None, load_user_translation=
 	out = {}
 	if full_dict==None:
 		if load_user_translation:
-			full_dict = frappe.translate.get_full_dict(frappe.local.lang)
+			full_dict = _frappe.translate.get_full_dict(_frappe.local.lang)
 		else:
-			full_dict = frappe.translate.load_lang(frappe.local.lang)
+			full_dict = _frappe.translate.load_lang(_frappe.local.lang)
 
 	for m in messages:
 		if m[1] in full_dict:
@@ -51,11 +47,11 @@ def chd_make_dict_from_messages(messages, full_dict=None, load_user_translation=
 				out[key] = full_dict[key]
 
 	# Christos - Add every [lang]_forced.csv translation file in out
-	out.update(chd_load_lang_forced(frappe.local.lang) or {})
+	out.update(chd_load_lang_forced(_frappe.local.lang) or {})
 
 	return out
 
-frappe.translate.make_dict_from_messages = chd_make_dict_from_messages
+_frappe.translate.make_dict_from_messages = chd_make_dict_from_messages
 
 # Includes in <head>
 # ------------------
