@@ -30,3 +30,17 @@ Delivery Note_list_breadcrumb,Δελτία Αποστολής,
 Customer_lv_title,Αρχείο Πελατών,
 Customer_list_breadcrumb,Αρχείο Πελατών,
 Refresh_lv_base,Ανανέωση εγγραφών,
+Notification Settings_list_breadcrumb,Αρχείο ρυθμίσεων ειδοποιήσεων,
+Notification Settings_lv_title,Αρχείο ρυθμίσεων ειδοποιήσεων,
+Notification Settings_Name_as_lv_field,Κανάλι ειδοποιήσεων (e-mail ή χρήστης),
+Company_lv_title,Αρχείο Εταιρειών,
+Company_Name_as_lv_field,Επωνυμία εταιρείας,
+Item_list_breadcrumb,Αρχείο Ειδών και Υπηρεσιών,
+Item_lv_title,Αρχείο Ειδών και Υπηρεσιών,
+Item_Name_as_lv_field,Κωδικός Είδους,
+UOM_list_breadcrumb,Μονάδες μέτρησης,
+UOM_lv_title,Μονάδες μέτρησης,
+
+
+
+

@@ -31,7 +31,7 @@ def chd_make_dict_from_messages(messages, full_dict=None, load_user_translation=
 	:param messages: List of untranslated messages
 	"""
 	out = {}
-	if full_dict==None:
+	if full_dict is None:
 		if load_user_translation:
 			full_dict = _frappe.translate.get_full_dict(_frappe.local.lang)
 		else:

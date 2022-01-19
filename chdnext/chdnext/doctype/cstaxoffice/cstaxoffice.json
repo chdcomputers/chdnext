@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "format:{tax_office_code}-{tax_office_name}",
  "creation": "2022-01-06 22:49:10.541563",
@@ -43,7 +44,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-01-06 22:49:10.541563",
+ "modified": "2022-01-16 20:56:41.981909",
  "modified_by": "Administrator",
  "module": "ChDNext",
  "name": "CSTaxOffice",

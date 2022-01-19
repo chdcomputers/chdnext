@@ -196,3 +196,4 @@ cypress/videos
 .idea/
 
 chdnext/docs/current
+chdnext.code-workspace
