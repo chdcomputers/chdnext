@@ -148,6 +148,13 @@ app_include_js = ["main.bundle.js","chdmain.bundle.js"]
 # Document Events
 # ---------------
 # Hook on document methods and events
+doc_events = {
+	"Customer": {
+		"validate": [
+			"chdnext.chdutils.docvalidators.validate_customer_afm"
+		]
+	}
+}
 
 # doc_events = {
 # 	"*": {
