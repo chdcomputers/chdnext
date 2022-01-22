@@ -1,0 +1,71 @@
+{
+ "actions": [],
+ "creation": "2022-01-21 14:37:16.524310",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "taxidchecks",
+  "chk_customer_afm",
+  "chk_supplier_afm",
+  "col_break0",
+  "aade_regs_uname",
+  "aade_regs_password"
+ ],
+ "fields": [
+  {
+   "default": "1",
+   "fieldname": "chk_customer_afm",
+   "fieldtype": "Check",
+   "label": "Check Customer Greek TAX ID"
+  },
+  {
+   "default": "1",
+   "fieldname": "chk_supplier_afm",
+   "fieldtype": "Check",
+   "label": "Check Supplier Greek TAX ID"
+  },
+  {
+   "fieldname": "taxidchecks",
+   "fieldtype": "Section Break",
+   "label": "TAX ID Checks"
+  },
+  {
+   "fieldname": "col_break0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "aade_regs_uname",
+   "fieldtype": "Data",
+   "label": "AADE Registry Search Username"
+  },
+  {
+   "fieldname": "aade_regs_password",
+   "fieldtype": "Password",
+   "label": "AADE Registry Search Password"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2022-01-21 23:51:21.182173",
+ "modified_by": "Administrator",
+ "module": "ChDNext",
+ "name": "ChDNext Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

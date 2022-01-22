@@ -9,6 +9,23 @@ chdNext.
 """
 
 
+def IsGreekAFM(afm: str):
+	"""Επιστρέφει True αν ένας ΑΦΜ έχει τις Ελληνικές προδιαγραφές
+	
+	Η συνάρτηση αυτή ελέγχει τον ΑΦΜ με βάση το μέγεθος του και το περιεχόμενο του.
+	ΔΕΝ ελέγχει αν ο ΑΦΜ είναι έγκυρος ή υπαρκτός.
+	"""
+
+	if len(afm) == 9:
+		return afm.isdecimal()
+	elif len(afm) == 11:
+		if afm[:2].lower() == "el":
+			return afm[-9].isdecimal()
+		else:
+			return False
+	else:
+		return False
+
 def GreekAFMisValid(afm: str):
 	"""Επιστρέφει True αν ένας ελληνικός ΑΦΜ είναι έγκυρος
 	
