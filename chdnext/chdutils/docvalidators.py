@@ -63,14 +63,11 @@ def get_aade_data(doctype, afm):
 					}
 					response = client.service.rgWsPublic2AfmMethod(**request_data)
 					result = serialize_object(response)
-					# ToDo: Handle error from AADE
-					# result: dict = {
-					# 	"call_seq_id": "99999999",
-					# 	"error_rec": {
-					# 		"error_code": "",
-					# 		"error_descr": ""
-					# 	},
-					return result
+					if (result["error_rec"]["error_code"] is not None) and (len(result["error_rec"]["error_code"]) > 0):
+						# Handle error from AADE
+						frappe.throw(_("AADE Error code: {0}\nMessage:{1}").format(result["error_rec"]["error_code"], result["error_rec"]["error_descr"]))
+					else:
+						return result
 				else:
 					frappe.throw(_("You have to set your AADE Registry Search Username and Password in the ChDNext module settings"))
 			else:

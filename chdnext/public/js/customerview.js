@@ -1,5 +1,5 @@
 frappe.ui.form.on("Customer", "refresh", function(frm) {
-    frm.add_custom_button(__("Get Tax registered data for Customer"), function() {
+    frm.add_custom_button(__("Get Greek Tax registered data for Customer"), function() {
 		frappe.call({
 			method: "chdnext.chdutils.docvalidators.get_aade_data",
 			args: {
@@ -99,14 +99,31 @@ frappe.ui.form.on("Customer", "refresh", function(frm) {
 							label: __("Copy AADE data to customer"),
 							fieldname: "chk_copydata",
 							fieldtype: "Check",
-							default: 0
+							default: 0,
+							change: function(e){
+								e.stopPropagation();
+								if (e.target.checked) {
+									d.get_primary_btn().text(__("Copy AADE Data to Customer"));
+								}
+								else {
+									d.get_primary_btn().text(__("Close"));
+								}
+							}
 						}
 					],
-					primary_action_label: __("Submit"),
+					primary_action_label: __("Close"),
 					primary_action(values) {
-						// ToDo: Implement the copy data functionality
 						console.log(values);
-						d.hide();
+						if (values.chk_copydata == 1){
+							d.disable_primary_action();
+							d.set_message(__("Copying AADE Data to Customer. Please wait..."));
+							setTimeout(() => {
+								// ToDo: Implement the copy data functionality here...
+								d.hide();
+							}, 2000);
+						} else {
+							d.hide();
+						}
 					}
 				});
 				console.log(r);
@@ -117,9 +134,9 @@ frappe.ui.form.on("Customer", "refresh", function(frm) {
 				console.log(r);
 			}
 		})
-    }, __("ChD Next"));
+    }, __("Tax Id Validation Actions"));
 
-    frm.add_custom_button(__("Do Something on Customer 2"), function() {
+    frm.add_custom_button(__("Get VIES Tax registered data for Customer"), function() {
         console.log("Did something Christos");
-    }, __("ChD Next"));
+    }, __("Tax Id Validation Actions"));
 });
