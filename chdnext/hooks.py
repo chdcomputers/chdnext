@@ -244,5 +244,12 @@ doc_events = {
 # auth_hooks = [
 # 	"chdnext.auth.validate"
 # ]
-
-fixtures = ["Custom Field"]
+required_apps = ["erpnext"]
+fixtures = [
+	{
+		"dt": "Custom Field",
+		"filters": [
+			["module", "=", ("ChDNext")]
+		]
+	}
+]
