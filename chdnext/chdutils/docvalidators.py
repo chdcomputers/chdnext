@@ -74,3 +74,45 @@ def get_aade_data(doctype, afm):
 				frappe.throw(_("{0} isn't a valid Greek Tax Id. Please fix it and try again").format(afmToCheck))
 		else:
 			frappe.throw(_("This function is available to Greek Tax Ids only"))
+
+@frappe.whitelist()
+def get_group_next_itemcode(grpname):
+	"""Get group's next item code based on group item coding settings"""
+
+	if (grpname is not None) and (len(grpname) > 0):
+		chd_settings = frappe.get_doc("ChDNext Settings")
+		totalLength: int = chd_settings.itmcode_length
+		if totalLength > 0:
+			item_group = frappe.get_doc("Item Group", grpname)
+			# * Note: If grpname doesn't exists frappe.get_doc throws an exception so we don't have to check ourselves...
+			# * Here we have a valid item_group
+			ancestors = item_group.get_ancestors()
+			if len(ancestors) == 0:
+				frappe.throw(_("This action cannot be performed on root group"))
+			else:
+				idx = 1
+				pattern: str = ""
+				for a in reversed(ancestors):
+					if idx > 1:
+						# We ignore the first element since it is the top root group
+						np: int = frappe.get_value("Item Group", a, "item_code_numeric_part") or 0
+						di: int = frappe.get_value("Item Group", a, "item_code_digits") or 2
+						pattern += f"{np:0{di}d}"
+					idx += 1
+				pattern += f"{item_group.item_code_numeric_part:0{item_group.item_code_digits}d}"
+				if len(pattern) >= totalLength:
+					frappe.throw(_("You need to increase the Total Item Code Length value by, at least, {0} characters in the ChDNext module settings").format(len(pattern) - totalLength))
+				else:
+					digitsLeft: int = totalLength - len(pattern)
+					nextcode: int = 0
+					curcode = frappe.get_list("Item", pluck = "name", filters = {"name": ["like", f"{pattern}%"]}, order_by = "name desc", page_length = 1)
+					if (len(curcode) == 0) or (not curcode[0][-digitsLeft:].isdecimal()):
+						nextcode += 1
+					else:
+						nextcode = int(curcode[0][-digitsLeft:]) + 1
+					pattern += f"{nextcode:0{digitsLeft}d}"
+					return {"grp": grpname, "nextcode": pattern}
+		else:
+			frappe.throw(_("You have to set the Total Item Code Length in the ChDNext module settings"))
+	else:
+		frappe.throw(_("You have to select an item group first for this action to work"))

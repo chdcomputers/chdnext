@@ -101,7 +101,8 @@ frappe.ui.form.on("Customer", "refresh", function(frm) {
 							fieldtype: "Check",
 							default: 0,
 							change: function(e){
-								e.stopPropagation();
+								// e.stopPropagation(); --> This is fired twice
+								// ToDo: Find a way to prevent that...
 								if (e.target.checked) {
 									d.get_primary_btn().text(__("Copy AADE Data to Customer"));
 								}

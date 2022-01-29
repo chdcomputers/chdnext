@@ -10,7 +10,9 @@
   "chk_supplier_afm",
   "col_break0",
   "aade_regs_uname",
-  "aade_regs_password"
+  "aade_regs_password",
+  "stitemssb",
+  "itmcode_length"
  ],
  "fields": [
   {
@@ -43,12 +45,22 @@
    "fieldname": "aade_regs_password",
    "fieldtype": "Password",
    "label": "AADE Registry Search Password"
+  },
+  {
+   "fieldname": "stitemssb",
+   "fieldtype": "Section Break",
+   "label": "Stock Items"
+  },
+  {
+   "fieldname": "itmcode_length",
+   "fieldtype": "Int",
+   "label": "Total Item Code Length"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-01-21 23:51:21.182173",
+ "modified": "2022-01-28 17:45:27.691020",
  "modified_by": "Administrator",
  "module": "ChDNext",
  "name": "ChDNext Settings",
