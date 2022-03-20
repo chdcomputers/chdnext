@@ -1,3 +1,4 @@
+// ToDo: Να βρω έναν τρόπο να εμφανίζεται η εικόνα του είδους (γενικά η sidebar-image) στο κέντρο του διαθέσιμου χώρου. Το παρακάτω style χρειάζεται για να δείχνει ολόκληρη την εικόνα
 .form-sidebar {
 	.sidebar-image-section {
 		.sidebar-image {
@@ -5,13 +6,3 @@
 		}
 	}
 }
-
-
-// .form-sidebar .sidebar-image-section .sidebar-image {
-// 	width: 100%;
-// 	height: auto;
-// 	max-height: 170px;
-// 	-o-object-fit: cover;
-// 	object-fit: cover;
-// 	border-radius: var(--border-radius-lg);
-// }

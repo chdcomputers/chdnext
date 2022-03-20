@@ -78,7 +78,8 @@ app_include_js = ["main.bundle.js","chdmain.bundle.js"]
 # include js in doctype views
 doctype_js = {
 	"Customer" : "public/js/customerview.js",
-	"Item" : "public/js/itemview.js"
+	"Item" : "public/js/itemview.js",
+	"Purchase Order" : "public/js/purchaseorderview.js"
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}

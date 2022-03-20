@@ -19,7 +19,7 @@ def validate_customer_afm(doc, method):
 		return
 
 	if frappe.db.get_single_value("ChDNext Settings", "chk_customer_afm"):
-		afm: str = doc.tax_id.strip()
+		afm: str = doc.tax_id.strip() if doc.tax_id is not None else ""
 		if len(afm) == 0:
 			return
 		if not GreekAFMisValid(afm):
@@ -32,7 +32,7 @@ def validate_supplier_afm(doc, method):
 		return
 
 	if frappe.db.get_single_value("ChDNext Settings", "chk_supplier_afm"):
-		afm: str = doc.tax_id.strip()
+		afm: str = doc.tax_id.strip() if doc.tax_id is not None else ""
 		if len(afm) == 0:
 			return
 		if not GreekAFMisValid(afm):
