@@ -132,7 +132,7 @@ frappe.views.ListView.prototype.setup_columns = function() {
 frappe.views.ListView.prototype.get_menu_items_orig = frappe.views.ListView.prototype.get_menu_items;
 frappe.views.ListView.prototype.get_menu_items = function() {
 	//Since a few time ago they have added the context string "Button in list view menu" in all list view menu items so we do not need to do something here...
-	const menuitems = [];
+	var menuitems = [];
 	menuitems = this.get_menu_items_orig();
 	return menuitems;
 }
@@ -141,7 +141,7 @@ frappe.views.ListView.prototype.get_menu_items = function() {
 frappe.views.ListView.prototype.get_actions_menu_items_orig = frappe.views.ListView.prototype.get_actions_menu_items;
 frappe.views.ListView.prototype.get_actions_menu_items = function() {
 	//Since a few time ago they have added the context string "Button in list view actions menu" in all list view action menu items so we do not need to do something here...
-	const actionsmenuitems = [];
+	var actionsmenuitems = [];
 	actionsmenuitems = this.get_actions_menu_items_orig();
 	return actionsmenuitems;
 }
