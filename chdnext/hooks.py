@@ -51,6 +51,7 @@ def chd_make_dict_from_messages(messages, full_dict=None, load_user_translation=
 
 	return out
 
+# Στην έκδοση 15 φαίνεται ότι έχουν βγάλει το _frappe.translate module...
 _frappe.translate.make_dict_from_messages = chd_make_dict_from_messages
 
 # Includes in <head>
